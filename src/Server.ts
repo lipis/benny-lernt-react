@@ -3,7 +3,7 @@ import * as Inert from 'inert';
 import * as logdown from 'logdown';
 import * as path from 'path';
 import * as Vision from 'vision';
-import {AnimalRoute} from './animal/AnimalRoute';
+import AnimalController from "./animal/AnimalController";
 
 class Server {
   private readonly logger = logdown('prefix:Server', {
@@ -44,7 +44,7 @@ class Server {
           }
         }
       },
-      ...AnimalRoute
+      ...(new AnimalController().ROUTES)
     ]);
   }
 
